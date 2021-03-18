@@ -40,46 +40,16 @@ public class FXMLController implements Initializable {
         result.getStyleClass().add("label1");
         // buttonsBehavior
         // sum
-        buttonSum.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent mouseEvent) {
-                if (!firstNumber.getText().equals("")
-                        && !secondNumber.getText().equals("")) {
-                    result.setText(String.valueOf(Double.parseDouble(firstNumber.getText()) +
-                            Double.parseDouble(secondNumber.getText())));
-                }
-            }
-        });
+        buttonSum.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent ->
+                result.setText(new Sum().operate(firstNumber.getText(), secondNumber.getText())));
         // subtraction
-        buttonSubtraction.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent mouseEvent) {
-                if (!firstNumber.getText().equals("")
-                        && !secondNumber.getText().equals(""))
-                    result.setText(String.valueOf(Double.parseDouble(firstNumber.getText()) -
-                            Double.parseDouble(secondNumber.getText())));
-            }
-        });
+        buttonSubtraction.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent ->
+                result.setText(new Sub().operate(firstNumber.getText(), secondNumber.getText())));
         // multiplication
-        buttonMultiplication.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent mouseEvent) {
-                if (!firstNumber.getText().equals("")
-                        && !secondNumber.getText().equals(""))
-                    result.setText(String.valueOf(Double.parseDouble(firstNumber.getText()) *
-                            Double.parseDouble(secondNumber.getText())));
-            }
-        });
+        buttonMultiplication.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent ->
+                result.setText(new Multi().operate(firstNumber.getText(), secondNumber.getText())));
         // division
-        buttonDivision.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent mouseEvent) {
-                if (!firstNumber.getText().equals("")
-                        && !secondNumber.getText().equals(""))
-                    result.setText(String.valueOf(Double.parseDouble(firstNumber.getText()) /
-                            Double.parseDouble(secondNumber.getText())));
-            }
-        });
+        buttonDivision.addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent ->
+                result.setText(new Div().operate(firstNumber.getText(), secondNumber.getText())));
     }
-
 }
