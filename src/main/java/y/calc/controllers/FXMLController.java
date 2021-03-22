@@ -40,14 +40,11 @@ public class FXMLController implements Initializable {
 
     // Utils
     final private MathOperations math = new MathSimpleOperations();
+    DecimalFormat decimalFormat = new DecimalFormat("##.###");
+    Pattern p = Pattern.compile("(\\d+\\.?\\d*)?");
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
-        DecimalFormat decimalFormat = new DecimalFormat("##.###");
-
-        Pattern p = Pattern.compile("(\\d+\\.?\\d*)?");
-
         firstNumber.textProperty().addListener((observable, oldValue, newValue) -> {
             if (!p.matcher(newValue).matches())
                 firstNumber.setText(oldValue);
